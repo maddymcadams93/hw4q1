@@ -7,7 +7,7 @@ conn.execute('select 1')
 def buggy_sanitize_1(input):
     return input.replace(';', '\;')
 
-input = "1 = 1\; SELECT 1 WHERE 1 = 1"
+input = "1 = 1; SELECT 1 WHERE 1 = 1"
 query = "SELECT 1 WHERE 1 = 0 and %s;" % buggy_sanitize_1(input)
 cursor = conn.execute(query)
 print (cursor.rowcount)
