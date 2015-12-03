@@ -1,3 +1,5 @@
+from sqlalchemy import create_engine
+
 engine = create_engine('postgresql://hw4:w4111@w4111db1.cloudapp.net/iowa')
 conn = engine.connect()
 conn.execute('select 1')
